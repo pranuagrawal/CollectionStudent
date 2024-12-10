@@ -1,0 +1,69 @@
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
+
+class Student{
+	
+	String name;
+	int id;
+	float marks;
+	
+	public Student(String name, int id, float marks) {
+		super();
+		this.name = name;
+		this.id = id;
+		this.marks = marks;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", id=" + id + ", marks=" + marks + "]";
+	}
+	
+	
+}
+
+public class CollectionStudents {
+
+	public static void main(String[] args) {
+		
+		Student s1 = new Student("Harry",101,87.8f);
+		Student s2 = new Student("Ron",102,66.8f);
+		Student s3 = new Student("Tom",103,56.4f);
+		Student s4 = new Student("Ronny",104,78.5f);
+		
+		
+		Map<Integer, Student> students = new HashMap<Integer,Student>();
+		
+		//1. Create new student data
+		students.put(s1.id,s1);
+		students.put(s2.id,s2);
+		students.put(s3.id,s3);
+		students.put(s4.id,s4);
+		
+		// 2. Read all student data
+		Collection<Student> studentInfo = students.values();
+		System.out.println(studentInfo);
+		
+		System.out.println();
+		
+		//3. Read Student data by id
+		
+		System.out.println(students.get(104));
+		
+		System.out.println();
+		
+		//4. Update Student by id
+		
+	    students.replace(s1.id= 105, s1);
+	    System.out.println(students);
+		
+	    System.out.println();
+	    
+		//5.Delete the student data by id 
+		students.remove(s1.id,s1);
+		System.out.println(students);
+		
+	}
+
+}
